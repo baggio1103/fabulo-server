@@ -1,0 +1,6 @@
+ktor:
+  application:
+    modules:
+      - com.javajedi.ServerApplicationKt.module
+  deployment:
+    port: 8080
