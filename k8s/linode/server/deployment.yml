@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-server
+  labels:
+    app: chat-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: chat-server
+      labels:
+        app: chat-server
+    spec:
+      containers:
+        - name: chat-server
+          image: baggio1103/web-socket-chat-server:0.0.2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: chat-server
